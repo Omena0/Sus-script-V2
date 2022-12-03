@@ -2,9 +2,12 @@
  Some sussy script lang
 
 # Info reading tips:
-<value> = Argument
+\<value\> = Argument
+
 (value) = Comment (exclude from syntax)
+
 var = list of all variables
+
 var 0 = latest set variable
 
 

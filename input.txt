@@ -1,9 +1,9 @@
 #!/DEBUG.
 #!/DEBUGB.
 
-# Exmple program
+# Exmple program by Omena0
 
-ask password:  
+input Password:  
 if 0 1234
 do print correct password! 
 else print Wrong password! 

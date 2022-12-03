@@ -3,7 +3,7 @@
 # Do Not claim as your own! #
 #############################
 
-Commands = ['help','print','log','set','echo','input','get','ask','if','do','else','goto','sleep','math','color']
+commands = ['help','print','log','set','echo','input','get','ask','if','do','else','goto','sleep','math','color']
 
 import string
 import random as r
@@ -32,7 +32,7 @@ def log(type,msg):
         print(colored(f'[{type}]: {time} > - {msg}','red',attrs=['underline','bold']),end='\n')
     else: print(Style.BRIGHT + Fore.WHITE + f'[{type}]: {time} > - {msg}',end='\n')
 
-version = 'V0.23 COLOR EDITION'
+version = 'V0.25 COLOR EDITION'
 prefix = '[OUT]: > - '
 ask_prefix = '[ASK]: > - '
 
@@ -65,6 +65,7 @@ def execute(content,line):
     if command == 'help':
         print('Commands: ')
         for i in commands: print(i)
+        print('For more help read the README at\n https://github.com/Omena0/Scripter/blob/main/README.md')
     
     if command == 'print':
         if args[1] == 'GET':
@@ -239,7 +240,6 @@ while True:
 print(Style.DIM + Fore.WHITE + '\n\n[PROGRAM END]')          
 while True:
     answ = input('')
-    execute(answ,0)
     try: exec(answ)
     except: pass
     try: execute(answ,0)
