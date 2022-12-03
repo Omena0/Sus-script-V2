@@ -4,7 +4,7 @@
 # Info reading tips:
 \<value\> = Argument
 
-(value) = Comment (exclude from syntax)
+(value) = Comment
 
 var = list of all variables
 
@@ -21,7 +21,7 @@ BTW, The variable at index 0 is ALWAYS the most recently defined variable (highe
 To set a variable use SET. With set you create a new variable and set it to a value, or format strings.
 Since SET supports infinite arguments which any of can be other variables.
 This is usefull when a command doesent support infinite arguments like PRINT.
-(Also most powerfull command)
+(Also set is the most used command)
 
 ## Functions:
 No native functions, you need to use GOTO to loop and stuff.
@@ -51,14 +51,14 @@ PRINT will add a prefix of "[OUT]: \> - " unless argument 4 is set to NOPREFIX (
 
 Syntax:
 ```sus-script 2 - Color edition
-LOG \<log level | GET\> <msg | var> <msg>
+LOG <log level | GET> <msg | var> <msg>
 ```
 
 ## MATH:
 With the MATH command you can calculate things really easily!
 Syntax:
 ```sus-script 2 - Color edition
-MATH \<operator\> \<var1\> \<var2\>
+MATH <operator> <var1> <var2>
 ```
 MATH will append the result to var.
 
@@ -66,7 +66,7 @@ MATH will append the result to var.
 Using the COLOR command you can add color to a variable easily
 Syntax:
 ```sus-script 2 - Color edition
-COLOR \<color\> \<var\>
+COLOR <color> <var>
 ```
 
 The only valid colors are BLUE, RED, YELLOW, and GREEN
@@ -102,7 +102,7 @@ You can create times by using the SLEEP command to sleep a number of seconds
 
 Syntax:
 ```sus-script 2 - Color edition
-SLEEP \<GET | .1's of a second\> \<variable\>
+SLEEP <GET | .1's of a second> <variable>
 ```
 
 # Ask me if you want some more info about how to do something.
