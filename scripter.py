@@ -3,7 +3,7 @@
 # Do Not claim as your own! #
 #############################
 
-
+Commands = ['help','print','log','set','echo','input','get','ask','if','do','else','goto','sleep','math','color']
 
 import string
 import random as r
@@ -38,14 +38,14 @@ ask_prefix = '[ASK]: > - '
 
 
 log('INFO',f'Sus script {version}, Made by Omena0!\n')
-#log('INFO','[PROGRAM START]\n\n')
+log('INFO','[PROGRAM START]\n\n')
 global var
 var = ['']
 
 def execute(content,line):
-    if debug == True: 
-        print(Style.BRIGHT + Fore.WHITE + content + ' ',end='')
     content = content + ' '
+    if debug == True: 
+        print(Style.BRIGHT + Fore.WHITE + 'COMMAND: ' + content)
     args = content.split(" ",100)
     command = args[0]
     if '#' in args[0]:
@@ -59,9 +59,13 @@ def execute(content,line):
         print(Fore.WHITE + Style.BRIGHT + '\n----------DEBUG----------')
         print(Fore.WHITE + Style.BRIGHT + f'Command: {command}')
         print(Fore.WHITE + Style.BRIGHT + f'Full args: {args}')
-        print(Fore.WHITE + Style.BRIGHT + f'var: {var}')
+        print(Fore.WHITE + Style.BRIGHT + f'Var: {var}')
         print(Fore.WHITE + Style.BRIGHT + '-------------------------\n')
-        
+
+    if command == 'help':
+        print('Commands: ')
+        for i in commands: print(i)
+    
     if command == 'print':
         if args[1] == 'GET':
             args[1] = var[int(args[2])]
@@ -75,9 +79,9 @@ def execute(content,line):
 
             
     if command == 'log':
-        if args[1] == 'GET':
-            args[1] = var[int(args[2])]
-            args[2] = ''
+        if args[2] == 'GET':
+            args[2] = var[int(args[3])]
+            args[3] == ''
         try: log(f'{args[1]}',f' {args[2]} {args[3]} ')
         except: log('ERROR',f'[{line}] Log failed: Expected at least 3 arguments')
 
@@ -154,7 +158,7 @@ def execute(content,line):
         if args[1] == 'GET':
             args[1] = var[int(args[2])]
             args[2] = ''
-        t.sleep(int(args[1]))
+        t.sleep(int(args[1])/10)
         
     
     if command == 'math':
@@ -167,18 +171,20 @@ def execute(content,line):
         elif args[1] == '/':
             result = int(var[int(args[2])]) / int(var[int(args[3])])
         else:
-            raise SyntaxError(f'Invalid math symbol ({args[1]})\nValid options are [+, -, *, /]')
-        var.append(result)
+            raise SyntaxError(f'Invalid math operator ({args[1]})\nValid options are [+, -, *, /]')
+        var.append(str(result))
     
     
     if command == 'color':
         args[1].lower()
         if args[1] == 'blue':
-            var.append(Fore.BLUE + args[2])
+            var.append(Fore.BLUE + var[args[2]])
         elif args[1] == 'red':
-            var.append(Fore.RED + args[2])
+            var.append(Fore.RED + var[args[2]])
         elif args[1] == 'yellow':
-            var.append(Fore.YELLOW + args[2])
+            var.append(Fore.YELLOW + var[args[2]])
+        elif args[1] == 'green':
+            var.append(Fore.GREEN + var[args[2]])
         else: raise SyntaxError(f'Invalid color: [{args[1]}]\nValid options are [RED,BLUE,YELLOW]')
     
     
@@ -192,13 +198,13 @@ content = in_file.readlines()
 in_file.close()
 
 
-if '#!/DEBUG\n' in content:
+if '#!/DEBUG-A\n' in content:
     debug = True
     print(' DEBUG A ON')
 else:
     debug = False
 
-if '#!/DEBUGB\n' in content:
+if '#!/DEBUG-B\n' in content:
     debugb = True
     print(' DEBUG B ON')
 else:
@@ -235,6 +241,8 @@ while True:
     answ = input('')
     execute(answ,0)
     try: exec(answ)
+    except: pass
+    try: execute(answ,0)
     except: pass
     if answ == 'Secret code!': print(Fore.WHITE + ':D you found an easter egg!')
     elif answ == ':D': print(Fore.WHITE + 'Lets be happy together! \n:D')
