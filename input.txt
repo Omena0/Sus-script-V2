@@ -1,0 +1,19 @@
+#!/DEBUG.
+#!/DEBUGB.
+
+# Exmple program
+
+ask password:  
+if 0 1234
+do print correct password! 
+else print Wrong password! 
+
+if 0 1234
+goto 1
+
+
+
+
+
+
+
