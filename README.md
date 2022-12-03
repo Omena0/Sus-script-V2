@@ -83,15 +83,15 @@ By adding #!/DEBUG-A or #!/DEBUG-B the program will print extra debug info.
 
 DEBUG A Displays:
 ```
-COMMAND: \<command\>
+COMMAND: <command>
 ```
 
 DEBUG B Displays:
 ```
 ----------DEBUG----------
-Command: \<command\>
-Full args: \<arguments\>
-Var: \<all variables\>
+Command: <command>
+Full args: <arguments>
+Var: <all variables>
 -------------------------
 ```
 
