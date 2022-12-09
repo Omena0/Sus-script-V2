@@ -131,7 +131,11 @@ def execute(content,line):
         condition = False
         if var[int(args[1])] + '\n'== args[2]:
             condition = True
-        
+
+    if command == 'rc':
+        global condition
+        condition = False
+    
     if command == 'do':
         if condition == True:
             allargs = ''
@@ -237,19 +241,19 @@ while True:
     
     
     
-print(Style.DIM + Fore.WHITE + '\n\n[PROGRAM END]')          
+print()          
 while True:
-    answ = input('')
+    answ = input(Style.DIM + Fore.WHITE + '\n\n[PROGRAM END]')
     try: exec(answ)
     except: pass
     try: execute(answ,0)
     except: pass
-    if answ == 'Secret code!': print(Fore.WHITE + ':D you found an easter egg!')
-    elif answ == ':D': print(Fore.WHITE + 'Lets be happy together! \n:D')
+    if answ == 'Never gonna give you up!': print(Fore.WHITE + ':D you found an easter egg!')
+    elif answ == ':D': print(Fore.WHITE + ':D')
     elif 'egg' in answ: print(Fore.WHITE + answ)
     elif 'sus' in answ: print(Fore.WHITE + 'Ur sus!')
-    elif answ == 'ok': print(Fore.WHITE + 'sus')
+    elif answ == 'ok': print(Fore.WHITE + 'Ok?')
     elif answ == 'echo!': print(Fore.WHITE + 'echhhooooo!!!')
-    elif 'among' in answ: print(Fore.WHITE + 'Among is among your message')
-    elif 'E' in answ: print(Fore.WHITE + 'sussy message!!!')
-    elif answ == 'restart': print(Fore.WHITE + 'restartting...')
+    elif 'among' in answ: print(Fore.WHITE + 'Among is among your message!')
+    elif 'E' in answ: print(Fore.WHITE + 'E')
+    elif answ == 'restart': print(Fore.WHITE + 'restarting...')
